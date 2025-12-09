@@ -1,6 +1,3 @@
-import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
-import * as schema from '@/lib/db/schema'; // Ajoute ton schéma de DB ici
-const sql = neon(process.env.DATABASE_URL!);
 
-export const db = drizzle(sql, { schema }); // Ajoute ton schéma de DB ici
+export const db = drizzle(process.env.DATABASE_URL!); // Ajoute ton schéma de DB ici 

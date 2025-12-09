@@ -7,3 +7,6 @@ Collab est une interprétation du projet Adaverse 2, réalisé sur NextJS, Drizz
 ### 08/12/2025
 - Mise en place de l'environnement et installation des dépendances
 - Conception théorique de la db
+
+### 09/12/2025
+- Création des components SignIn, LogIn, et LogOut

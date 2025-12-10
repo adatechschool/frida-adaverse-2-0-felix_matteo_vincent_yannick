@@ -1,19 +1,19 @@
-import { SignUpForm } from "./components/SignUpForm";
-import { LogInForm } from "./components/LogInForm";
-import { LogOutButton } from "./components/LogOutButton";
-import { auth } from "@/auth";
-import { headers } from "next/headers";
-
-
+import { getComment } from "./actions/comment/getComment";
+import { getPost } from "./actions/post/getPost";
 
 
 export default async function Home() {
 
+    const postData = await getPost();
+    console.log("🐷", postData)
 
-  return (
-    <main className="flex flex-col justify-center items-center">
-      
-      
-    </main>
-  );
+    const commentData = await getComment();
+    console.log("🤡", commentData)
+
+    return (
+        <main className="flex flex-col justify-center items-center">
+
+
+        </main>
+    );
 }

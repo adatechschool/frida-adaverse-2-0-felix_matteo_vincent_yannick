@@ -15,6 +15,20 @@
       "when": 1765287992181,
       "tag": "0001_famous_nekra",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1765366673321,
+      "tag": "0002_mean_ezekiel_stane",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1765377759417,
+      "tag": "0003_strong_microchip",
+      "breakpoints": true
     }
   ]
 }

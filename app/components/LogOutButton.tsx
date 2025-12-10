@@ -1,6 +1,6 @@
 "use client";
 
-import { logOutAction } from "../actions/logOutAction";
+import { logOutAction } from "@/app/actions/logOutAction";
 
 export const LogOutButton = () => {
 

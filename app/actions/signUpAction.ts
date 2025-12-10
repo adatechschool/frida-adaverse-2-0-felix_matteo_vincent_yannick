@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 
 export const signUpAction = async (formData: FormData) => {
-    const name = formData.get("username") as string;
+    const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     if (!name && !email && !password) {

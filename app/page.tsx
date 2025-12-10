@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SignUpForm } from "./components/SignUpForm";
 import { LogInForm } from "./components/LogInForm";
 import { LogOutButton } from "./components/LogOutButton";

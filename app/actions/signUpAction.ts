@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 
@@ -21,5 +21,5 @@ export const signUpAction = async (formData: FormData) => {
         console.error("Sign in failed:", await response.json());
         redirect("/auth/signup?error=true");
     }
-    redirect("/"); // on redirige vers la home page une fois connecté
+    redirect("/");
 };

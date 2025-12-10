@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
@@ -20,8 +20,8 @@ export const logInAction = async (formData: FormData) => {
         console.error("Sign in failed:", await response.json());
         redirect("/auth/signin?error=true");
     }
-    redirect("/"); // on redirige vers la home page une fois connecté
+    redirect("/");
 };
 export const signout = async () => {
-    await auth.api.signOut({ headers: await headers() }); // attention à bien passer les headers !
+    await auth.api.signOut({ headers: await headers() });
 };

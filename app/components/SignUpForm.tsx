@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { signUpAction } from "@/app/actions/signUpAction";
 
@@ -15,4 +15,4 @@ export const SignUpForm = () => {
             <button type="submit" className=" bg-green-200">S'incrire</button>
         </form>
     );
-}
+};

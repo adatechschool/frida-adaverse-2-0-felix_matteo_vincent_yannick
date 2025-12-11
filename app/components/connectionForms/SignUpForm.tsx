@@ -1,6 +1,6 @@
 "use client";
 
-import { signUpAction } from "@/app/actions/signUpAction";
+import { signUpAction } from "@/app/actions/connection/signUpAction";
 
 export const SignUpForm = () => {
 

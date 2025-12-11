@@ -6,7 +6,7 @@ import { LogOutButton } from "./LogOutButton";
 import { auth } from "@/auth";
 import { headers } from "next/headers";
 
-export const Connexion = async () => {
+export const Connection = async () => {
 
   const session = await auth.api.getSession({ headers: await headers() });
 

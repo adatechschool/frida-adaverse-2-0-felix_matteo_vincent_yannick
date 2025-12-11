@@ -16,3 +16,8 @@ Collab est une interprétation du projet Adaverse 2, réalisé sur NextJS, Drizz
 - Maquette front end
 - Ajout les annonces et les commentaires dans la base de données
 - Création des routes getPost et getComment
+
+## 11/12/2025
+- Création des routes createPost et createComment
+- Création des routes deletePost et deleteComment
+- Création des routes editPost et editComment

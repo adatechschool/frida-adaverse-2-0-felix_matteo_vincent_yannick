@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Connexion } from "./components/Connexion";
+import { Connection } from "./components/connectionForms/Connection";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Connexion/>
+        <Connection/>
         {children}
       </body>
     </html>

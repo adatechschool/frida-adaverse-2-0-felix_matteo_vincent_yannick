@@ -1,6 +1,6 @@
 "use client";
 
-import { logInAction } from "@/app/actions/logInAction";
+import { logInAction } from "@/app/actions/connection/logInAction";
 
 export const LogInForm = () => {
 

@@ -22,7 +22,7 @@ export const EditPost = async ({ postId }: { postId: number }) => {
             <input name="title" type="text" defaultValue={postToModify[0]?.title} required />
             <label htmlFor="content">Annonce</label>
             <input name="content" type="text" defaultValue={postToModify[0]?.content} required />
-            <button className="bg-blue-200">Publier</button>
+            <button className="bg-blue-200">Modifier</button>
         </form>
     );
 };

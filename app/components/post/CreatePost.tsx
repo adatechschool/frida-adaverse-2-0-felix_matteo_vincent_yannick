@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import { db } from "@/lib/db/drizzle";
 import { category } from "@/lib/db/schema";

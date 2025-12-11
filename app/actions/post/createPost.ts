@@ -5,7 +5,7 @@ import { db } from "@/lib/db/drizzle";
 import { post } from "@/lib/db/schema";
 import { headers } from "next/headers";
 
-export const createPost = async (formData:FormData) => {
+export const createPost = async (formData: FormData) => {
 
     const session = await auth.api.getSession({ headers: await headers() });
 

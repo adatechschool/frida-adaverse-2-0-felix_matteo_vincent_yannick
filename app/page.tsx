@@ -3,14 +3,18 @@ import { getComment } from "./actions/comment/getComment";
 import { getPost } from "./actions/post/getPost";
 import { headers } from "next/headers";
 import { CreatePost } from "./components/post/CreatePost";
+import { CreateComment } from "./components/comment/CreateComment";
+
 
 
 export default async function Home() {
 
-
     return (
         <main className="flex flex-col justify-center items-center">
             <CreatePost/>
+            <CreateComment/>
+            
+
         </main>
     );
 }

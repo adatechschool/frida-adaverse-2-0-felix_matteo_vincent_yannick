@@ -1,5 +1,5 @@
 import { CreatePost } from "./components/post/CreatePost";
-import { DisplayAllPost } from "./components/post/DisplayPost";
+import { DisplayCategories } from "./components/post/DisplayCategories";
 
 export default async function Home() {
 
@@ -7,7 +7,7 @@ export default async function Home() {
         <main className="flex flex-col justify-center items-center">
             <h1>Collab'</h1>
             <CreatePost />
-            <DisplayAllPost />
+            <DisplayCategories />
         </main>
     );
 };

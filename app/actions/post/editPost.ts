@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { db } from "@/lib/db/drizzle";
 import { post } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
 export const editPost = async (formData:FormData): Promise<void> => {
@@ -24,4 +25,6 @@ export const editPost = async (formData:FormData): Promise<void> => {
         title: title,
         content: content
     }).where(eq(post.id, postId));
+
+    revalidatePath("/");
 };

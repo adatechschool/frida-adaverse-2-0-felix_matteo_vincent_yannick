@@ -23,6 +23,12 @@ Collab est une interprétation du projet Adaverse 2, réalisé sur NextJS, Drizz
 - Création d'un composant d'affichage des posts
 - Création de la route deletePost et d'un composant deletePost
 
+## 12/12/2025
+- Réparation de la page dynamique [id]
+- Création de la fonction editPost
+
+- Mis
+
 ## To do
 - Création de la route et deleteComment
 - Création des routes editPost et editComment

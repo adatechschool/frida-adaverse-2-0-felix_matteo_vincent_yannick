@@ -6,7 +6,7 @@ import { post } from "@/lib/db/schema";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
-export const createPost = async (formData:FormData) => {
+export const createPost = async (formData: FormData) => {
 
     const session = await auth.api.getSession({ headers: await headers() });
 

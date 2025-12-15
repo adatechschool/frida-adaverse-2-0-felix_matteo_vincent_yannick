@@ -18,6 +18,7 @@ export const DisplayPost = async ({
 
                 < div key={item.post.id} className="border p-2" >
                     <h3>{item.post.title}</h3>
+                    <h4>{item.user.name}</h4>
                     <p>{item.post.content}</p>
                     <DeleteOnePost post={item.post} />
                     <EditPost postId={item.post.id} />

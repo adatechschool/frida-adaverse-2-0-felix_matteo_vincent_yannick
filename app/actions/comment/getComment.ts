@@ -1,8 +1,7 @@
 "use server";
 
-import { user } from "@/auth-schema";
 import { db } from "@/lib/db/drizzle";
-import { category, post, comment } from "@/lib/db/schema";
+import { category, post, comment, user } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
 export const getComment = async () => {

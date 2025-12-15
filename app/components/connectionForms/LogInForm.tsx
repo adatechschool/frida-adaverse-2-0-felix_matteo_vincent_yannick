@@ -26,7 +26,7 @@ export const LogInForm = () => {
                 <label htmlFor="password" className="sr-only">Mot de passe</label>
                 <input name="password" type="password" placeholder="Mot de passe" required className="px-2 py-1 border" />
                 <button type="submit" className="bg-blue-200 px-3 py-1 rounded">Connexion</button>
-                <button><Link href="inscription">Inscription</Link></button>
+                <button onClick={() => setIsOpen(!isOpen)}><Link href="inscription">Inscription</Link></button>
             </form>
         </div>
     );

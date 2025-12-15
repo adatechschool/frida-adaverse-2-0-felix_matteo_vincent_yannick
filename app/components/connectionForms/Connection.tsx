@@ -15,12 +15,7 @@ export const Connection = async () => {
     <>
       {session ?
         <LogOutButton /> : (
-          <>
             <LogInForm />
-            <br />
-            <div><Link href="inscription">Inscription</Link></div>
-            <SignUpForm />
-          </>
         )}
     </>
   );

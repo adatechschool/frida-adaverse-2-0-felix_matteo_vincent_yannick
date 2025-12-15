@@ -1,6 +1,7 @@
 import { getPost } from "@/app/actions/post/getPost";
 import { DeleteOnePost } from "./DeleteOnePost";
 import { EditPost } from "./EditPost";
+import Link from "next/link";
 
 export const DisplayPost = async ({
     category,
@@ -17,7 +18,8 @@ export const DisplayPost = async ({
             {posts.map((item) => (
 
                 < div key={item.post.id} className="border p-2" >
-                    <h3>{item.post.title}</h3>
+                    <Link href={`/${item.post.id}`}><h3>{item.post.title}</h3>
+                    </Link>
                     <h4>{item.user.name}</h4>
                     <p>{item.post.content}</p>
                     <DeleteOnePost post={item.post} />

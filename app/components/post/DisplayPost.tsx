@@ -13,7 +13,7 @@ export const DisplayPost = async ({
     if (!posts || posts.length === 0) return null;
 
     return (
-        <div className="flex flex-col w-full gap-2 p-2 m-2 border">
+        <div className="flex flex-col gap-2 p-2 m-2 border">
             {posts.map((item) => (
                 <div key={item.post.id} className="border p-2">
                     <h2 className="text-xl font-bold">{item.post.title}</h2>

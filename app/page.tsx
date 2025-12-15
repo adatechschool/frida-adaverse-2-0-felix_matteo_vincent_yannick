@@ -10,7 +10,7 @@ export default async function Home() {
 
     return (
         <main className="flex flex-col justify-center items-center">
-            <CreatePost/>
+            <h1>Collab'</h1>
         </main>
     );
 }

@@ -14,8 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Connection/>
+      <body className="var-">
+        <Connection />
         {children}
       </body>
     </html>

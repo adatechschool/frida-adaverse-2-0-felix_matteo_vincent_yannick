@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap');
 @import "tailwindcss";
 
 input {
@@ -10,4 +11,11 @@ button {
   border: 1px solid;
   border-radius: 5rem;
   padding: 0.5rem 1rem;
+}
+
+h1 {
+  font-family: "BBH Bartle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:xx-large;
 }

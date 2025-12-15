@@ -1,5 +1,6 @@
 import { getPost } from "@/app/actions/post/getPost";
 import { DeleteOnePost } from "./DeleteOnePost";
+import { EditPost } from "./EditPost";
 
 export const DisplayAllPost = async () => {
     const posts =  await getPost();
@@ -10,6 +11,7 @@ return (
                     <h2 className="text-xl font-bold">{item.post.title}</h2>
                     <p>{item.post.content}</p>
                     <DeleteOnePost post={item.post} />
+                    <EditPost postId={item.post.id}/>
                 </div>
             ))}
         </div>

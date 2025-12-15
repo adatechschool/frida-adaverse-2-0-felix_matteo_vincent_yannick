@@ -3,6 +3,7 @@
 import { auth } from "@/auth";
 import { db } from "@/lib/db/drizzle";
 import { post } from "@/lib/db/schema";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
 export const createPost = async (formData:FormData) => {
@@ -23,4 +24,6 @@ export const createPost = async (formData:FormData) => {
         title: title,
         content: content
     });
+
+    revalidatePath("/");
 };

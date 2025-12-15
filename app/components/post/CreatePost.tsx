@@ -11,8 +11,8 @@ export const CreatePost = async () => {
     return (
         <form action={createPost} className="flex flex-col w-100 gap-1 p-1 m-1 border">
             <label htmlFor="category">Titre</label>
-            <select name="category" id="">
-                <option value="0">Choisissez une catégorie</option>
+            <select name="category" id="" required>
+                <option value="">Choisissez une catégorie</option>
                 {categories.map((item) =>
                     <option key={item.id} value={item.id}>{item.title}</option>)}
             </select>

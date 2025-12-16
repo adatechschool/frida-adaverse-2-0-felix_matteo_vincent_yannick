@@ -1,6 +1,5 @@
 import { getPost } from "@/app/actions/post/getPost";
 import { DeleteOnePost } from "./DeleteOnePost";
-import { EditPost } from "./EditPost";
 import Link from "next/link";
 
 export const DisplayPost = async ({
@@ -23,7 +22,6 @@ export const DisplayPost = async ({
                     <h4>{item.user.name}</h4>
                     <p>{item.post.content}</p>
                     <DeleteOnePost post={item.post} />
-                    <EditPost postId={item.post.id} />
                 </div>
             ))
             }

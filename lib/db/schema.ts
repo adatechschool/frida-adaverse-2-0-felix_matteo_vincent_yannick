@@ -115,6 +115,7 @@ export const post = pgTable("post", {
     .defaultNow()
     .$onUpdate(() => new Date())
     .notNull(),
+  isActive: boolean("is_active").notNull().default(true),
 });
 
 export const userRelations = relations(user, ({ many }) => ({

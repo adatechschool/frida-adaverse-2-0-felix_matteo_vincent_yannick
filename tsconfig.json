@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/components/connectionForms/LogInForm.tsx", "app/page.tsx"  ],
+, "app/components/connectionForms/LogInForm.tsx", "app/page.tsx", "app/actions/admin/togglePostAction"  ],
   "exclude": ["node_modules"]
 }

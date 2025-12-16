@@ -1,4 +1,4 @@
-import { getPost } from "@/app/actions/post/getPost";
+import { getAllPosts } from "@/app/actions/post/getPost";
 import { DeleteOnePost } from "./DeleteOnePost";
 import { EditPost } from "./EditPost";
 
@@ -9,7 +9,7 @@ export const DisplayPost = async ({
     category: { title: string };
     posts?: any[];
 }) => {
-    const posts = initialPosts ?? (await getPost(category.title));
+    const posts = initialPosts ?? (await getAllPosts());
     if (!posts || posts.length === 0) return null;
 
     return (

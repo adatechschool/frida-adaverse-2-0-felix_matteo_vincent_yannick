@@ -1,26 +1,21 @@
 "use client";
 
+import { toggleBanAction } from "@/app/actions/admin/toggleBanAction";
 import { useState } from "react";
 
-export const ToggleBan = ({userId, isBanned}: {userId: number, isBanned: boolean}) => {
-
+export const ToggleBan = ({userId, isBanned}: {userId: number, isBanned: boolean}
+    
+) => {
+console.log(isBanned)
+console.log(userId)
     const [banStatus, setBanStatus] = useState(isBanned)
+    const ban = !banStatus
 
     return (
-                <form action={} className="flex flex-col w-100 gap-1 p-1 m-1 border">
-                    <input type="hidden" name="postId" value={postId} />
-                    <label htmlFor="category">Catégorie</label>
-                    <select name="category" id="category" defaultValue={postToModify[0]?.categoryId}>
-                        <option value="0">Choisissez une catégorie</option>
-                        {categories.map((item) =>
-                            <option key={item.id} value={item.id}>{item.title}</option>)}
-                    </select>
-                    <label htmlFor="title">Titre</label>
-                    <input name="title" type="text" defaultValue={postToModify[0]?.title} required />
-                    <label htmlFor="content">Annonce</label>
-                    <input name="content" type="text" defaultValue={postToModify[0]?.content} required />
-                    <button className="bg-blue-200">Modifier</button>
-                    <button onClick={()=>{!setBanStatus}}>{banStatus?"Débannir":"Bannir"}</button>
+                <form action={toggleBanAction} className="flex flex-col w-100 gap-1 p-1 m-1 border">
+                    <input type="hidden" name="userId" value={userId} />
+                    <input type="hidden" name="isBanned" value={ban.toString()} />
+                    <button type="submit" onClick={() => {setBanStatus(!banStatus)}}>{banStatus?"Débannir":"Bannir"}</button>
                 </form>
         
     ) 

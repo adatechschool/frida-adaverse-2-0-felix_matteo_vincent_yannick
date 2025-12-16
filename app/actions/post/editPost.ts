@@ -26,5 +26,5 @@ export const editPost = async (formData:FormData): Promise<void> => {
         content: content
     }).where(eq(post.id, postId));
 
-    redirect(`${postId}`);
+    redirect(`/${postId}`);
 };

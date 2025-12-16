@@ -3,7 +3,6 @@
 import { db } from "@/lib/db/drizzle";
 import { user } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
 
 export const toggleBanAction = async (formData: FormData): Promise<void> => {
     const banField = formData.get("isBanned") as string;

@@ -3,11 +3,11 @@
 import { toggleBanAction } from "@/app/actions/admin/toggleBanAction";
 import { useState } from "react";
 
-export const ToggleBan = ({userId, isBanned}: {userId: number, isBanned: boolean}
+export const ToggleBan = ({userId, isBanned}: {userId: string, isBanned: boolean}
     
 ) => {
 console.log(isBanned)
-console.log(userId)
+console.log(typeof userId)
     const [banStatus, setBanStatus] = useState(isBanned)
     const ban = !banStatus
 

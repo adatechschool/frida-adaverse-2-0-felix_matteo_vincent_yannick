@@ -1,14 +1,14 @@
 import { db } from "@/lib/db/drizzle";
 import { category } from "@/lib/db/schema";
-import { DisplayPost } from "./DisplayPost";
-import { getPost } from "@/app/actions/post/getPost";
+import { DisplayPost } from "./DisplayPosts";
+import { getPostByCategory } from "@/app/actions/post/getPost";
 
 export const DisplayCategories = async () => {
     const categoriesArray = await db.select().from(category);
 
     const categoriesWithPosts = await Promise.all(
         categoriesArray.map(async (item: any) => {
-            const posts = await getPost(item.title);
+            const posts = await getPostByCategory(item.title);
             return { item, posts };
         })
     );

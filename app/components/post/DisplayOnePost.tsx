@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EditPost } from "./EditPost";
+import { DeleteOnePost } from "./DeleteOnePost";
 
 interface CommentProps {
   id: number;
@@ -63,38 +64,38 @@ export const DisplayOnePost = ({
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <main>
-      <div>
-        {isEditing ? (
-          <div></div>
-        ) : (
-          <div className="h2">
-            {postDetail.post.title}
-            <div>{postDetail.post.content}</div>
-          </div>
-        )}
+    <div>
+      {isEditing ? (
+        <div></div>
+      ) : (
+        <div className="h2">
+          {postDetail.post.title}
+          <div>{postDetail.post.content}</div>
+        </div>
+      )}
 
-        <button
-          onClick={() => setIsEditing(!isEditing)}
-          className="bg-blue-200 px-4 py-2 rounded mt-2"
-        >
-          {isEditing ? "Annuler l'édition" : "Editer"}
-        </button>
-        {isEditing && (
-          <EditPost
-            postId={postId}
-            categories={categories}
-            postToModify={postToModify}
-          />
-        )}
-        {comments.length > 0 ? (
-          comments.map((commentItem) => {
-            return <div key={commentItem.id}>{commentItem.content}</div>;
-          })
-        ) : (
-          <div>Aucun commentaires actuellement</div>
-        )}
-      </div>
-    </main>
+      <button
+        onClick={() => setIsEditing(!isEditing)}
+        className="bg-blue-200 px-4 py-2 rounded mt-2"
+      >
+        {isEditing ? "Annuler l'édition" : "Editer"}
+      </button>
+      {isEditing && (
+        <EditPost
+          postId={postId}
+          categories={categories}
+          postToModify={postToModify}
+        />
+      )}
+
+      <DeleteOnePost postId={postId} />
+      {comments.length > 0 ? (
+        comments.map((commentItem) => {
+          return <div key={commentItem.id}>{commentItem.content}</div>;
+        })
+      ) : (
+        <div>Aucun commentaires actuellement</div>
+      )}
+    </div>
   );
 };

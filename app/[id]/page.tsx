@@ -23,8 +23,6 @@ export default async function PostPage({ params }: Props) {
   const { id } = await params;
   const paramsId = Number(id);
 
-  console.log("🥳", paramsId);
-
   const postItem = await db
     .select()
     .from(post)

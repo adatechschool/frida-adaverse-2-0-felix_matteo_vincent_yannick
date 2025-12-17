@@ -21,7 +21,6 @@ export const DisplayPost = async ({
                     </Link>
                     <h4>{item.user.name}</h4>
                     <p>{item.post.content}</p>
-                    <DeleteOnePost post={item.post} />
                 </div>
             ))
             }

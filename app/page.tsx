@@ -6,7 +6,6 @@ export default async function Home() {
     return (
         <main className="flex flex-col justify-center items-center">
             <h1>Collab'</h1>
-            <CreatePost />
             <DisplayCategories />
         </main>
     );

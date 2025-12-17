@@ -2,11 +2,11 @@
 
 import { deletePost } from "@/app/actions/post/deletePost";
 
-export const DeleteOnePost = (postToDelete: any) => {
-    const handleDelete = async (post: any) => 
-        await deletePost(post.id);
+export const DeleteOnePost = ({postId}: {postId: number}) => {
+    const handleDelete = async (id: number) => 
+        await deletePost(id);
     return (
-        <button onClick={() => handleDelete(postToDelete.post)} className="mt-2 px-4 py-2 bg-red-500 text-white rounded">
+        <button onClick={() => handleDelete(postId)} className="mt-2 px-4 py-2 bg-red-200">
             Supprimer le post
         </button>
     );

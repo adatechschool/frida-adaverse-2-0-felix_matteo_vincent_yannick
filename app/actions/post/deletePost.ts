@@ -5,7 +5,7 @@ import { db } from "@/lib/db/drizzle";
 import { post } from "@/lib/db/schema";
 import { headers } from "next/headers";
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/dist/server/web/spec-extension/revalidate";
+import { redirect } from "next/navigation";
 
 export const deletePost = async (postId: number) => {
 
@@ -15,6 +15,6 @@ export const deletePost = async (postId: number) => {
         throw new Error("Utilisateur non authentifié");
     }    
     await db.delete(post).where(eq(post.id, postId));
-    revalidatePath("/");
+    redirect("/");
     
 };

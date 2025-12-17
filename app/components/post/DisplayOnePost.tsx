@@ -29,8 +29,6 @@ export const DisplayOnePost = async ({
     }
   }
 
-  console.log("😜 canEdit:", canEdit);
-
   return (
     <DisplayOnePostClient
       postDetail={postDetail}

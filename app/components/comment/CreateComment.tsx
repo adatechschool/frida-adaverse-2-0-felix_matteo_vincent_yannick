@@ -1,14 +1,15 @@
-"use server";
+"use client";
 
 import { createComment } from "@/app/actions/comment/createComment";
 
-export const CreateComment = async () => {
+export const CreateComment = ({id}:{id:number}) => {
 
     return (
-        <form action={createComment} className="flex flex-col w-100 gap-1 p-1 m-1 border">
+        <form action={createComment} className="flex flex-col">
             <label htmlFor="content">Commentaire</label>
-            <input name="content" type="text" required />
-            <button className=" bg-blue-200">Publier</button>
+            <textarea name="content" placeholder="respectez les règles de la communauté 😜" required />
+            <input type="hidden" name="postId" value={String(id)}/>
+            <button type="submit" className=" bg-blue-200">Publier</button>
         </form>
     );
 };

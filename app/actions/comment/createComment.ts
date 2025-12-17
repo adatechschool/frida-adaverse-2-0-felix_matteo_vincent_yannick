@@ -2,10 +2,12 @@
 
 import { auth } from "@/auth";
 import { db } from "@/lib/db/drizzle";
-import { comment, post } from "@/lib/db/schema";
+import { comment, post, user } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 
-export const createComment = async (formData:FormData) => {
+export const createComment = async (formData: FormData) => {
 
     const session = await auth.api.getSession({ headers: await headers() });
 
@@ -14,10 +16,14 @@ export const createComment = async (formData:FormData) => {
     }
 
     const content = formData.get("content") as string;
+    const currentPostId = formData.get("postId") as string;
+    const userId = formData
 
     const newComment = await db.insert(comment).values({
         userId: session.user.id,
-        postId: Number(post.id),
+        postId: Number(currentPostId),
         content: content as string,
     });
+
+    revalidatePath("/");
 };

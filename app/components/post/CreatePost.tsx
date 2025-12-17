@@ -20,7 +20,7 @@ export const CreatePost = async () => {
             <input name="title" type="text" required />
             <label htmlFor="content">Annonce</label>
             <textarea name="content" required />
-            <button className=" bg-blue-200">Publier</button>
+            <button className="bg-blue-200">Publier</button>
         </form>
     );
 };

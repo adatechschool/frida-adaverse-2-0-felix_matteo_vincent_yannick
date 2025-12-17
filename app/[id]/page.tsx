@@ -20,6 +20,7 @@ interface Props {
 }
 
 export default async function PostPage({ params }: Props) {
+
   const { id } = await params;
   const paramsId = Number(id);
 
@@ -40,7 +41,6 @@ export default async function PostPage({ params }: Props) {
     .from(comment)
     .where(eq(comment.postId, paramsId));
 
-  // Récupérer les catégories et le post à modifier pour l'édition
   const categories = await db.select().from(category);
   const postToModify = await db.select().from(post).where(eq(post.id, paramsId));
 
@@ -52,5 +52,9 @@ export default async function PostPage({ params }: Props) {
     );
   }
 
-  return <DisplayOnePost postDetail={postDetail} comments={comments} postId={paramsId} categories={categories} postToModify={postToModify[0]} />;
+  return (
+  
+  <DisplayOnePost postDetail={postDetail} comments={comments} postId={paramsId} categories={categories} postToModify={postToModify[0]} />
+
+  );
 }

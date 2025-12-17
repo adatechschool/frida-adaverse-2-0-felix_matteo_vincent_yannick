@@ -1,101 +1,44 @@
-"use client";
+"use server";
 
-import { useState } from "react";
-import { EditPost } from "./EditPost";
-import { DeleteOnePost } from "./DeleteOnePost";
+import { headers } from "next/headers";
+import { auth } from "@/auth";
+import { db } from "@/lib/db/drizzle";
+import { user } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
+import { DisplayOnePostClient } from "./DisplayOnePostClient";
+import { Props } from "@/app/interface";
 
-interface CommentProps {
-  id: number;
-  userId: string;
-  postId: number;
-  content: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-interface PostDetail {
-  post: {
-    id: number;
-    title: string;
-    content: string;
-    userId: string;
-    categoryId: number;
-    createdAt: Date;
-    updatedAt: Date;
-  };
-  user: {
-    id: string;
-    name: string;
-    email: string;
-  } | null;
-  comment: CommentProps | null;
-}
-
-interface Category {
-  id: number;
-  title: string;
-}
-
-interface PostToModify {
-  id: number;
-  title: string;
-  content: string;
-  categoryId: number;
-  userId: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-interface Props {
-  postDetail: PostDetail;
-  comments: CommentProps[];
-  postId: number;
-  categories: Category[];
-  postToModify: PostToModify;
-}
-
-export const DisplayOnePost = ({
+export const DisplayOnePost = async ({
   postDetail,
   comments,
   postId,
   categories,
   postToModify,
 }: Props) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const session = await auth.api.getSession({ headers: await headers() });
+
+  let canEdit = false;
+
+  if (session?.user?.id) {
+    const connectedUser = await db.select().from(user).where(eq(user.id, session.user.id));
+
+    if (connectedUser && connectedUser.length > 0) {
+      const bannedUser = connectedUser[0].isBanned === true;
+      const isPostAuthor = postDetail.post.userId === connectedUser[0].id;
+      canEdit = !!session && isPostAuthor && !bannedUser;
+    }
+  }
+
+  console.log("😜 canEdit:", canEdit);
 
   return (
-    <div>
-      {isEditing ? (
-        <div></div>
-      ) : (
-        <div className="h2">
-          {postDetail.post.title}
-          <div>{postDetail.post.content}</div>
-        </div>
-      )}
-
-      <button
-        onClick={() => setIsEditing(!isEditing)}
-        className="bg-blue-200 px-4 py-2 rounded mt-2"
-      >
-        {isEditing ? "Annuler l'édition" : "Editer"}
-      </button>
-      {isEditing && (
-        <EditPost
-          postId={postId}
-          categories={categories}
-          postToModify={postToModify}
-        />
-      )}
-
-      <DeleteOnePost postId={postId} />
-      {comments.length > 0 ? (
-        comments.map((commentItem) => {
-          return <div key={commentItem.id}>{commentItem.content}</div>;
-        })
-      ) : (
-        <div>Aucun commentaires actuellement</div>
-      )}
-    </div>
+    <DisplayOnePostClient
+      postDetail={postDetail}
+      comments={comments}
+      postId={postId}
+      categories={categories}
+      postToModify={postToModify}
+      canEdit={canEdit}
+    />
   );
 };

@@ -36,7 +36,7 @@ export const EditPost = ({ postId, categories, postToModify }: Props) => {
       <label htmlFor="title">Titre</label>
       <input name="title" type="text" defaultValue={postToModify.title} required />
       <label htmlFor="content">Annonce</label>
-      <input name="content" type="text" defaultValue={postToModify.content} required />
+      <textarea name="content" defaultValue={postToModify.content} required />
       <button className="bg-blue-200">Modifier</button>
     </form>
   );

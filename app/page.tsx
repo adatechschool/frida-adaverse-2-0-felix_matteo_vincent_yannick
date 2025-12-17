@@ -1,11 +1,39 @@
-import { CreatePost } from "./components/post/CreatePost";
+import { auth } from "@/auth";
 import { DisplayCategories } from "./components/post/DisplayCategories";
+import Link from "next/link";
+import { headers } from "next/headers";
+import { db } from "@/lib/db/drizzle";
+import { user } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
 
 export default async function Home() {
+
+    const session = await auth.api.getSession({ headers: await headers() });
+
+    let bannedUser = false;
+    if (session?.user?.id) {
+        const connectedUsers = await db.select().from(user).where(eq(user.id, session.user.id));
+        if (connectedUsers.length > 0) {
+            bannedUser = connectedUsers[0].isBanned === true;
+        }
+    }
+
+    const isDisabled = !session || bannedUser;
 
     return (
         <main className="flex flex-col justify-center items-center">
             <h1>Collab'</h1>
+
+            {isDisabled ? (
+                <></>
+            ) : (
+                <Link href="/publication">
+                    <button className="bg-blue-200">Créer une annonce</button>
+                </Link>
+            )}
+
+            {!session && <p className="text-sm text-gray-500 mt-2">Connectez-vous pour créer une annonce.</p>}
+
             <DisplayCategories />
         </main>
     );

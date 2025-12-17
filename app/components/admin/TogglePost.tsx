@@ -1,6 +1,7 @@
 "use client";
 
 import { togglePostAction } from "@/app/actions/admin/togglePostAction";
+import { useState } from "react";
 
 interface TogglePostButtonProps {
     postId: number;
@@ -8,17 +9,21 @@ interface TogglePostButtonProps {
 }
 
 export default function TogglePostButton({ postId, isActive }: TogglePostButtonProps) {
+    const [activeStatus, setActiveStatus] = useState(isActive);
+    const newStatus = !activeStatus;
+
     return (
         <form action={togglePostAction}>
             <input type="hidden" name="postId" value={postId} />
-            <input type="hidden" name="isActive" value={isActive.toString()} />
+            <input type="hidden" name="isActive" value={activeStatus.toString()} />
             <button
                 type="submit"
+                onClick={() => { setActiveStatus(newStatus); }}
                 className={`px-4 py-2 rounded ${
-                    isActive ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"
+                    activeStatus ? "bg-red-200 " : "bg-green-200 "
                 } text-white`}
             >
-                {isActive ? "Désactiver" : "Activer"}
+                {activeStatus ? "Désactiver" : "Activer"}
             </button>
         </form>
     );

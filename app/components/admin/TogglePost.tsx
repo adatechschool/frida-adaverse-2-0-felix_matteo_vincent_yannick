@@ -15,7 +15,7 @@ export default function TogglePostButton({ postId, isActive }: TogglePostButtonP
     return (
         <form action={togglePostAction}>
             <input type="hidden" name="postId" value={postId} />
-            <input type="hidden" name="isActive" value={activeStatus.toString()} />
+            <input type="hidden" name="isActive" value={newStatus.toString()} />
             <button
                 type="submit"
                 onClick={() => { setActiveStatus(newStatus); }}

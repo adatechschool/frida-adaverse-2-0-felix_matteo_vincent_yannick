@@ -13,8 +13,9 @@ export const deletePost = async (postId: number) => {
 
     if (!session?.user?.id) {
         throw new Error("Utilisateur non authentifié");
-    }    
-    await db.delete(post).where(eq(post.id, postId));
+    } await db.update(post)
+        .set({ isActive: false })
+        .where(eq(post.id, postId));
+
     redirect("/");
-    
 };

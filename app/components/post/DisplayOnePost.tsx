@@ -20,7 +20,10 @@ export const DisplayOnePost = async ({
   let canEdit = false;
 
   if (session?.user?.id) {
-    const connectedUser = await db.select().from(user).where(eq(user.id, session.user.id));
+    const connectedUser = await db
+      .select()
+      .from(user)
+      .where(eq(user.id, session.user.id));
 
     if (connectedUser && connectedUser.length > 0) {
       const bannedUser = connectedUser[0].isBanned === true;

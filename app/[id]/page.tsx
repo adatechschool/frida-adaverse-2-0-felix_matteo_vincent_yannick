@@ -6,21 +6,11 @@ import { post, user, comment, category } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { DisplayOnePost } from "../components/post/DisplayOnePost";
 
-interface commentProps {
-  id: number;
-  userId: string;
-  postId: number;
-  content: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
 interface Props {
   params: { id: string };
 }
 
 export default async function PostPage({ params }: Props) {
-
   const { id } = await params;
   const paramsId = Number(id);
 
@@ -39,10 +29,14 @@ export default async function PostPage({ params }: Props) {
   const comments = await db
     .select()
     .from(comment)
+    .leftJoin(user, eq(comment.userId, user.id))
     .where(eq(comment.postId, paramsId));
 
   const categories = await db.select().from(category);
-  const postToModify = await db.select().from(post).where(eq(post.id, paramsId));
+  const postToModify = await db
+    .select()
+    .from(post)
+    .where(eq(post.id, paramsId));
 
   if (!postDetail) {
     return (
@@ -53,8 +47,12 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-  
-  <DisplayOnePost postDetail={postDetail} comments={comments} postId={paramsId} categories={categories} postToModify={postToModify[0]} />
-
+    <DisplayOnePost
+      postDetail={postDetail}
+      comments={comments}
+      postId={paramsId}
+      categories={categories}
+      postToModify={postToModify[0]}
+    />
   );
 }

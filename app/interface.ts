@@ -5,6 +5,10 @@ interface CommentProps {
   content: string;
   createdAt: Date;
   updatedAt: Date;
+  user?: {
+    id: string;
+    name?: string | null;
+  } | null;
 }
 
 interface PostDetail {
@@ -40,9 +44,17 @@ interface PostToModify {
   updatedAt: Date;
 }
 
+interface CommentRow {
+  comment: CommentProps;
+  user?: {
+    id: string;
+    name?: string | null;
+  } | null;
+}
+
 export interface Props {
   postDetail: PostDetail;
-  comments: CommentProps[];
+  comments: CommentRow[];
   postId: number;
   categories: Category[];
   postToModify: PostToModify;

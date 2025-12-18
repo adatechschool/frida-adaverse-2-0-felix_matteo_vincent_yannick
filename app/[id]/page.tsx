@@ -33,6 +33,7 @@ export default async function PostPage({ params }: Props) {
     .where(eq(comment.postId, paramsId));
 
   const categories = await db.select().from(category);
+
   const postToModify = await db
     .select()
     .from(post)

@@ -21,5 +21,5 @@ export const signUpAction = async (formData: FormData) => {
         console.error("Sign in failed:", await response.json());
         redirect("/auth/signup?error=true");
     }
-    redirect("./");
+    redirect("/");
 };

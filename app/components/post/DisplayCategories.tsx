@@ -1,6 +1,6 @@
 import { db } from "@/lib/db/drizzle";
 import { category } from "@/lib/db/schema";
-import { DisplayPost } from "./DisplayPost";
+import { DisplayAllPosts } from "./DisplayAllPosts";
 import { getPost } from "@/app/actions/post/getPost";
 
 export const DisplayCategories = async () => {
@@ -20,7 +20,7 @@ export const DisplayCategories = async () => {
                     {posts && posts.length > 0 ? (
                         <div className="">
                             <h2>{item.title}</h2>
-                            <DisplayPost category={item} posts={posts} />
+                            <DisplayAllPosts category={item} posts={posts} />
                         </div>
                     ) : null}
                 </div>

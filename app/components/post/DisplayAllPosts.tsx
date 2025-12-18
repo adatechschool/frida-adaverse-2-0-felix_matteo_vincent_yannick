@@ -1,7 +1,7 @@
 import { getPost } from "@/app/actions/post/getPost";
 import Link from "next/link";
 
-export const DisplayPost = async ({
+export const DisplayAllPosts = async ({
   category,
   posts: initialPosts,
 }: {

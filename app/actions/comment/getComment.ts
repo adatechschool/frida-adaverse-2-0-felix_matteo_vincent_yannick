@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/lib/db/drizzle";
-import { post, comment, user} from "@/lib/db/schema";
+import { post, comment, user } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
 export const getComment = async () => {
@@ -9,5 +9,7 @@ export const getComment = async () => {
         .from(comment)
         .leftJoin(user, eq(comment.userId, user.id))
         .leftJoin(post, eq(comment.postId, post.id))
-        return allComments
+        .where(eq(comment.isActive, true))
+
+    return allComments
 }

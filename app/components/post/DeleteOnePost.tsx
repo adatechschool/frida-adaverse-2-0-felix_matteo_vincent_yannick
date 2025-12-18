@@ -7,7 +7,7 @@ export const DeleteOnePost = ({postId}: {postId: number}) => {
         await deletePost(id);
     return (
         <button onClick={() => handleDelete(postId)} className="mt-2 px-4 py-2 bg-red-200">
-            Supprimer le post
+            Supprimer l'annonce
         </button>
     );
 };

@@ -3,7 +3,7 @@
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db/drizzle";
 import { post, user, comment, category } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { DisplayOnePost } from "../components/post/DisplayOnePost";
 
 interface Props {
@@ -30,7 +30,8 @@ export default async function PostPage({ params }: Props) {
     .select()
     .from(comment)
     .leftJoin(user, eq(comment.userId, user.id))
-    .where(eq(comment.postId, paramsId));
+    .where(and(eq(comment.postId, paramsId), eq(comment.isActive, true)));
+
 
   const categories = await db.select().from(category);
 

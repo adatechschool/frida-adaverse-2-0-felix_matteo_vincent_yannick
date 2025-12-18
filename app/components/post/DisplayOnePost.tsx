@@ -7,8 +7,10 @@ import { user } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { DisplayOnePostClient } from "./DisplayOnePostClient";
 import { Props } from "@/app/interface";
+import Link from "next/link";
 
 export const DisplayOnePost = async ({
+  isActive,
   postDetail,
   comments,
   postId,
@@ -33,13 +35,22 @@ export const DisplayOnePost = async ({
   }
 
   return (
-    <DisplayOnePostClient
+    isActive ? (
+
+      <DisplayOnePostClient
       postDetail={postDetail}
       comments={comments}
       postId={postId}
       categories={categories}
       postToModify={postToModify}
       canEdit={canEdit}
-    />
+      isActive={isActive}
+      />
+    ) : (
+      <>
+      <div>Ce post a été desactivé</div>
+      <Link href="/">Retour à l'accueil</Link>
+      </>
+    )
   );
 };

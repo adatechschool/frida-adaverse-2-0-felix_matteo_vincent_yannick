@@ -20,6 +20,7 @@ interface PostDetail {
     categoryId: number;
     createdAt: Date;
     updatedAt: Date;
+    isActive: boolean;
   };
   user: {
     id: string;
@@ -58,4 +59,5 @@ export interface Props {
   postId: number;
   categories: Category[];
   postToModify: PostToModify;
+  isActive: boolean
 }

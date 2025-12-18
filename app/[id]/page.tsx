@@ -54,6 +54,7 @@ export default async function PostPage({ params }: Props) {
       postId={paramsId}
       categories={categories}
       postToModify={postToModify[0]}
+      isActive={postItem[0].post.isActive}
     />
   );
 }

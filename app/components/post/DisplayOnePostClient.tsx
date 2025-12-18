@@ -4,6 +4,7 @@ import { EditPost } from "./EditPost";
 import { DeleteOnePost } from "./DeleteOnePost";
 import { Props } from "@/app/interface";
 import { CreateComment } from "../comment/CreateComment";
+import { EditComment } from "../comment/EditComment";
 
 interface ClientProps extends Props {
   canEdit: boolean;
@@ -56,6 +57,7 @@ export const DisplayOnePostClient = ({
           <div key={commentItem.comment.id}>
             <h3>{commentItem.user?.name}</h3>
             {commentItem.comment.content}
+            <EditComment commentId={commentItem.comment.id} postId={postId} commentToModify={commentItem.comment}/>
           </div>
         ))
       ) : (

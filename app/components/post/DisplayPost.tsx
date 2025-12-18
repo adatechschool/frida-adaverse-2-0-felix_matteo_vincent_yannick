@@ -1,0 +1,27 @@
+import { getPost } from "@/app/actions/post/getPost";
+import Link from "next/link";
+
+export const DisplayAllPosts = async ({
+  category,
+  posts: initialPosts,
+}: {
+  category: { title: string };
+  posts?: any[];
+}) => {
+  const posts = initialPosts ?? (await getPost(category.title));
+  if (!posts || posts.length === 0) return null;
+
+  return (
+    <div className="flex flex-col gap-2 p-2 m-2 border">
+      {posts.map((item) => (
+        <div key={item.post.id} className="border p-2">
+          <Link href={`/${item.post.id}`}>
+            <h3>{item.post.title}</h3>
+          </Link>
+          <h4>{item.user.name}</h4>
+          <p>{item.post.content}</p>
+        </div>
+      ))}
+    </div>
+  );
+};

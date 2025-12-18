@@ -91,6 +91,7 @@ export const comment = pgTable("comment", {
     .defaultNow()
     .$onUpdate(() => new Date())
     .notNull(),
+  isActive: boolean("is_active").notNull().default(true),
 });
 
 export const category = pgTable("category", {

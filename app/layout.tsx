@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Connection } from "./components/connectionForms/Connection";
+import Link from "next/link";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Connection />
+          <div className="fixed">
+            <Connection />
+          </div>
+          <div id="layoutTitle" className="flex justify-center">
+            <Link href="/">
+              <h2 className="">Collab'</h2>
+            </Link>
+          </div>
         {children}
       </body>
     </html>

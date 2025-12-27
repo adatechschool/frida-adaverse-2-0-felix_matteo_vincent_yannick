@@ -26,7 +26,8 @@ h2 {
   font-size: 30;
 }
 
-th, td {
-  border: 1px solid;  
+th,
+td {
+  border: 1px solid;
   padding: 0.5rem 1rem;
 }

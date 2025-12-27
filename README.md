@@ -27,8 +27,13 @@ Collab est une interprétation du projet Adaverse 2, réalisé sur NextJS, Drizz
 - Réparation de la page dynamique [id]
 - Création de la fonction editPost
 
-- Mis
-
-## To do
+## 15/12/2025
 - Création de la route et deleteComment
 - Création des routes editPost et editComment
+
+## To do
+- Rediriger l'utilisateur s'il se déconnecte depuis une autre page que l'index
+- Rediriger l'utilisateur à son annonce après avoir cliqué sur publication
+- "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:"
+- Bouton "administration" sur l'index pour les admin
+- maj graphique

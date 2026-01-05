@@ -14,11 +14,11 @@ export const DisplayCategories = async () => {
     );
 
     return (
-        <div>
+        <div id="displayCategories">
             {categoriesWithPosts.map(({ item, posts }) => (
                 <div key={item.id}>
                     {posts && posts.length > 0 ? (
-                        <div className="">
+                        <div>
                             <h2>{item.title}</h2>
                             <DisplayAllPosts category={item} posts={posts} />
                         </div>

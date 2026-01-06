@@ -16,15 +16,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-          <div className="fixed">
-            <Connection />
-          </div>
-          <div id="layoutTitle" className="flex justify-center">
-            <Link href="/">
-              <h2 className="">Collab'</h2>
-            </Link>
-          </div>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+
+      <body className="">
+        <div className="">
+          <Connection />
+        </div>
+        <div id="layoutTitle" className="flex justify-center">
+          <Link href="/">
+            <h2 className="">Collab'</h2>
+          </Link>
+        </div>
         {children}
       </body>
     </html>

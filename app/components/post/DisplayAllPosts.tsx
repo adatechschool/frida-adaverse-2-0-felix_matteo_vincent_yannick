@@ -12,13 +12,13 @@ export const DisplayAllPosts = async ({
   if (!posts || posts.length === 0) return null;
 
   return (
-    <div className="flex flex-col gap-2 p-2 m-2 border">
+    <div id="container" className="flex flex-row gap-2 p-2 m-2 border overflow-x-scroll text-left">
       {posts.map((item) => (
-        <div key={item.post.id} className="border p-2">
+        <div key={item.post.id} id="content" className="min-w-90 max-w-90 border p-2 h-50 overflow-y-scroll">
           <Link href={`/${item.post.id}`}>
             <h3>{item.post.title}</h3>
           </Link>
-          <h4>{item.user.name}</h4>
+          <p className="italic">{item.user.name}</p>
           <p>{item.post.content}</p>
         </div>
       ))}

@@ -5,7 +5,7 @@ import { createComment } from "@/app/actions/comment/createComment";
 export const CreateComment = ({ id }: { id: number }) => {
   return (
     <form action={createComment} className="flex flex-col">
-      <label htmlFor="content">Commentaire</label>
+      <label htmlFor="content">Ajouter un commentaire</label>
       <textarea
         name="content"
         placeholder="respectez les règles de la communauté 😜"

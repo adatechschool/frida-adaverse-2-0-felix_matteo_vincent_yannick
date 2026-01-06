@@ -1,10 +1,10 @@
 import { auth } from "@/auth";
 import { DisplayCategories } from "./components/post/DisplayCategories";
-import Link from "next/link";
 import { headers } from "next/headers";
 import { db } from "@/lib/db/drizzle";
 import { user } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
+import Link from "next/link";
 
 export default async function Home() {
 
@@ -22,8 +22,6 @@ export default async function Home() {
 
     return (
         <main className="flex flex-col justify-center items-center">
-            <h1>Collab'</h1>
-
             {isDisabled ? (
                 <></>
             ) : (

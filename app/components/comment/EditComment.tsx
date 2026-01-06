@@ -29,7 +29,6 @@ export const EditComment = ({ commentId, postId, commentToModify }: Props) => {
         <form action={editComment} className="flex flex-col w-100 gap-1 p-1 m-1 border">
             <input type="hidden" name="postId" value={postId} />
             <input type="hidden" name="commentId" value={commentId} />
-            <label htmlFor="content">Annonce</label>
             <textarea name="content" defaultValue={commentToModify.content} required />
             <button className="bg-blue-200">Modifier</button>
         </form>

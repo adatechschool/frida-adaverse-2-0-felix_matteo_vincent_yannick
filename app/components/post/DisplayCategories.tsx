@@ -18,7 +18,7 @@ export const DisplayCategories = async () => {
             {categoriesWithPosts.map(({ item, posts }) => (
                 <div key={item.id}>
                     {posts && posts.length > 0 ? (
-                        <div className="m-auto max-w-200 text-center">
+                        <div className="m-auto max-w-[40rem] md:max-w-[48rem] lg:max-w-[64rem] text-center">
                             <h2>{item.title}</h2>
                             <DisplayAllPosts category={item} posts={posts} />
                         </div>

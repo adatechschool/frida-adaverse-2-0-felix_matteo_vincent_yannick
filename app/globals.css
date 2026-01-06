@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap');
 @import "tailwindcss";
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 input {
   border: 1px solid;
   border-radius: 5rem;
@@ -32,3 +42,4 @@ td {
   border: 1px solid;
   padding: 0.5rem 1rem;
 }
+

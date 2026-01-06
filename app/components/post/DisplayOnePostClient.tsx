@@ -9,6 +9,7 @@ import { DeleteComment } from "../comment/DeleteComment";
 
 interface ClientProps extends Props {
   canEdit: boolean;
+  userId: string;
 }
 
 export const DisplayOnePostClient = ({
@@ -18,6 +19,7 @@ export const DisplayOnePostClient = ({
   categories,
   postToModify,
   canEdit,
+  userId,
 }: ClientProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
@@ -58,8 +60,16 @@ export const DisplayOnePostClient = ({
           <div key={commentItem.comment.id}>
             <h3>{commentItem.user?.name}</h3>
             {commentItem.comment.content}
-            <EditComment commentId={commentItem.comment.id} postId={postId} commentToModify={commentItem.comment} />
-            <DeleteComment commentId={commentItem.comment.id} />
+            {commentItem.comment.userId === userId && (
+              <div>
+                <EditComment
+                  commentId={commentItem.comment.id}
+                  postId={postId}
+                  commentToModify={commentItem.comment}
+                />
+                <DeleteComment commentId={commentItem.comment.id} />
+              </div>
+            )}
           </div>
         ))
       ) : (

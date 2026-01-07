@@ -60,7 +60,17 @@ export const DisplayOnePostClient = ({
         comments.map((commentItem) => (
           <div key={commentItem.comment.id}>
             <h3>{commentItem.user?.name}</h3>
-            {commentItem.comment.content}
+
+            {editingCommentId === commentItem.comment.id ? (
+              <EditComment
+                commentId={commentItem.comment.id}
+                postId={postId}
+                commentToModify={commentItem.comment}
+              />
+            ) : (
+              <p>{commentItem.comment.content}</p>
+            )}
+
             {commentItem.comment.userId === userId && (
               <div>
                 <button
@@ -73,14 +83,6 @@ export const DisplayOnePostClient = ({
                 >
                   {editingCommentId === commentItem.comment.id ? "Annuler l'édition" : "Editer"}
                 </button>
-
-                {editingCommentId === commentItem.comment.id && (
-                  <EditComment
-                    commentId={commentItem.comment.id}
-                    postId={postId}
-                    commentToModify={commentItem.comment}
-                  />
-                )}
 
                 <DeactivateComment commentId={commentItem.comment.id} />
               </div>

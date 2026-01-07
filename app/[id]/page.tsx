@@ -49,6 +49,7 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
+    <div id="onepost" className="flex m-auto justify-center max-w-160 md:max-w-3xl lg:max-w-5xl">
     <DisplayOnePost
       postDetail={postDetail}
       comments={comments}
@@ -57,5 +58,6 @@ export default async function PostPage({ params }: Props) {
       postToModify={postToModify[0]}
       isActive={postItem[0].post.isActive}
     />
+    </div>
   );
 }

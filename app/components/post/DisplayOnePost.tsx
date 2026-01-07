@@ -35,16 +35,16 @@ export const DisplayOnePost = async ({
   }
 
   return isActive ? (
-    <DisplayOnePostClient
-      postDetail={postDetail}
-      comments={comments}
-      postId={postId}
-      categories={categories}
-      postToModify={postToModify}
-      canEdit={canEdit}
-      isActive={isActive}
-      userId={userId}
-    />
+      <DisplayOnePostClient
+        postDetail={postDetail}
+        comments={comments}
+        postId={postId}
+        categories={categories}
+        postToModify={postToModify}
+        canEdit={canEdit}
+        isActive={isActive}
+        userId={userId}
+      />
   ) : (
     <>
       <div>Ce post a été desactivé</div>

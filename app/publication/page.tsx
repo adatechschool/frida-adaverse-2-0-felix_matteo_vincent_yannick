@@ -17,8 +17,8 @@ export default async function Publication() {
     const bannedUser = ConnectedUser[0].isBanned === true;
 
     return (
-        <div>
-            {bannedUser ? "Vous n'avez pas accès au formulaire car vous êtes bannis" : < CreatePost /> }
+        <div className="flex flex-row flex-wrap justify-center">
+            {bannedUser ? "Vous n'avez pas accès au formulaire car vous êtes bannis 🤪" : < CreatePost /> }
         </div>
     )
 };

@@ -26,11 +26,11 @@ export default async function Home() {
                 <></>
             ) : (
                 <Link href="/publication">
-                    <button className="bg-blue-200">Créer une annonce</button>
+                    <button className="bg-blue-200 mb-5">Créer une annonce</button>
                 </Link>
             )}
 
-            {!session && <p className="text-sm text-gray-500 mt-2">Connectez-vous pour créer une annonce.</p>}
+            {!session && <p className="text-sm text-gray-500 mt-2 mb-5">Connectez-vous pour créer une annonce.</p>}
 
             <DisplayCategories />
         </main>

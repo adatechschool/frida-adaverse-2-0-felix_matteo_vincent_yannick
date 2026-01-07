@@ -58,7 +58,7 @@ export const DisplayOnePostClient = ({
 
       {comments.length > 0 ? (
         comments.map((commentItem) => (
-          <div key={commentItem.comment.id}>
+          <div key={commentItem.comment.id} className="min-w-100 max-w-100 bg-[#EFEFEF] p-2 m-2 gap-2 rounded-xl">
             <h3>{commentItem.user?.name}</h3>
 
             {editingCommentId === commentItem.comment.id ? (

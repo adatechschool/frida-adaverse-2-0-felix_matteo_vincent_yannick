@@ -18,7 +18,7 @@ export const DisplayAllPosts = async ({
           <div id="content" className="min-w-90 max-w-90 bg-[#EFEFEF] p-2 h-50 overflow-y-scroll rounded-xl no-scrollbar">
 
             <h3 className="justify-self-center">{item.post.title}</h3>
-
+            <p className="text-xs text-gray-500">{new Date(item.post.createdAt).toLocaleDateString()}</p>
             <p className="italic justify-self-center">{item.user.name}</p>
             <br />
             <p>{item.post.content}</p>

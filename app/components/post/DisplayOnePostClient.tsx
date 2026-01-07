@@ -68,7 +68,10 @@ export const DisplayOnePostClient = ({
                 commentToModify={commentItem.comment}
               />
             ) : (
+              <div>
+              <p className="text-xs text-gray-500">{new Date(commentItem.comment.createdAt).toLocaleDateString()}</p>
               <p>{commentItem.comment.content}</p>
+              </div>
             )}
 
             {commentItem.comment.userId === userId && (

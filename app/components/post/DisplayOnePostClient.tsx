@@ -22,6 +22,7 @@ export const DisplayOnePostClient = ({
   userId,
 }: ClientProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [editingCommentId, setEditingCommentId] = useState<number | null>(null);
 
   return (
     <div>
@@ -62,11 +63,25 @@ export const DisplayOnePostClient = ({
             {commentItem.comment.content}
             {commentItem.comment.userId === userId && (
               <div>
-                <EditComment
-                  commentId={commentItem.comment.id}
-                  postId={postId}
-                  commentToModify={commentItem.comment}
-                />
+                <button
+                  onClick={() =>
+                    setEditingCommentId(
+                      editingCommentId === commentItem.comment.id ? null : commentItem.comment.id
+                    )
+                  }
+                  className="bg-blue-200 px-4 py-2 rounded mt-2"
+                >
+                  {editingCommentId === commentItem.comment.id ? "Annuler l'édition" : "Editer"}
+                </button>
+
+                {editingCommentId === commentItem.comment.id && (
+                  <EditComment
+                    commentId={commentItem.comment.id}
+                    postId={postId}
+                    commentToModify={commentItem.comment}
+                  />
+                )}
+
                 <DeactivateComment commentId={commentItem.comment.id} />
               </div>
             )}

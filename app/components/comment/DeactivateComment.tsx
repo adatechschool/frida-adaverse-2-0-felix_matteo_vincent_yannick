@@ -1,10 +1,10 @@
 "use client";
 
-import { deleteComment } from "@/app/actions/comment/deleteComment";
+import { deactivateComment } from "@/app/actions/comment/deactivateComment";
 
-export const DeleteComment = ({commentId}: {commentId: number}) => {
+export const DeactivateComment = ({commentId}: {commentId: number}) => {
     const handleDelete = async (id: number) => 
-        await deleteComment(id);
+        await deactivateComment(id);
     return (
         <button onClick={() => handleDelete(commentId)} className="mt-2 px-4 py-2 bg-red-200">
             Supprimer le commentaire

@@ -7,7 +7,7 @@ import { eq } from "drizzle-orm";
 import { comment } from "@/lib/db/schema";
 import { revalidatePath } from "next/cache";
 
-export const desactivateComment = async (commentId: number) => {
+export const deactivateComment = async (commentId: number) => {
 
     const session = await auth.api.getSession({ headers: await headers() });
 

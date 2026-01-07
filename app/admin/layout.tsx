@@ -30,7 +30,6 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         {children}
-        testiazehtuhazeouhtazehfohzeafzae
       </body>
     </html>
   );

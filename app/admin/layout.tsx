@@ -27,10 +27,10 @@ export default async function RootLayout({
       redirect("/")
     }
   return (
-    <html lang="en">
-      <body>
+    <div>
+      <div>
         {children}
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }
